@@ -1,22 +1,24 @@
 import React from "react";
-import EmployeeTable from "../Components/EmTable";
-import EmployeeInsult from "../Components/EmInsultContainer";
-import EmployeeModify from "../Components/EmModifyContainer";
+import { HashRouter as Router, Route } from "react-router-dom";
+import Header from "../Components/Common/Header";
+import Main from "../Components/Common/Main";
+import AdminError from "../Components/Common/AdminError";
+import Footer from "../Components/Common/Footer";
+import Notice from "../Components/Common/Notice";
+
 function HomePresenter(props) {
-  const { modify, insult, handleInsult } = props.state;
-  return insult ? (
+  return props.state.isAdmin ? (
     <>
-      <EmployeeInsult />
-    </>
-  ) : modify ? (
-    <>
-      <EmployeeModify />
+      <Header />
+      <Main state={props.state} />
+      <Footer />
+      <Notice />
     </>
   ) : (
     <>
-      <EmployeeTable />
-
-      <button onClick={(e) => handleInsult(e)}>추가</button>
+      <Header />
+      <AdminError />
+      <Footer />
     </>
   );
 }

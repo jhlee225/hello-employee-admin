@@ -1,13 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { OpenModify, SelectEmployee } from "../store";
+import { OpenModify, SetModifyData } from "../../Reducers/HomeReducer";
 import EmTableListPresenter from "./EmTableListPresenter";
 function EmTableListContainer(props) {
-  const { item, modify, OpenModify, SelectEmployee } = props;
+  const { item, modify, OpenModify, SetModifyData } = props;
 
   function handleClick(e) {
-    const selected = item.emId;
-    SelectEmployee({ selected });
+    SetModifyData({ data: item });
     OpenModify({ modify });
   }
 
@@ -18,13 +17,13 @@ function EmTableListContainer(props) {
 }
 
 function mapStateToProps(state) {
-  return { modify: state.modify };
+  return { modify: state.Home.modify };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     OpenModify: ({ modify }) => dispatch(OpenModify({ modify })),
-    SelectEmployee: ({ selected }) => dispatch(SelectEmployee({ selected })),
+    SetModifyData: ({ data }) => dispatch(SetModifyData({ data })),
   };
 }
 export default connect(

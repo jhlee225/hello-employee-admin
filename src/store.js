@@ -1,13 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { employeeSlice } from "./reducer";
-export const {
-  OpenInsult,
-  OpenModify,
-  SelectEmployee,
-  SetData,
-} = employeeSlice.actions;
+import { rootReducer } from "./Reducers/reducer";
 
 const store = configureStore({
-  reducer: employeeSlice.reducer,
+  reducer: rootReducer,
 });
 export default store;

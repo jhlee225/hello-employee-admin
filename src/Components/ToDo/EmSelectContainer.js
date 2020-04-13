@@ -6,7 +6,7 @@ function EmSelect({ state }) {
 }
 
 function mapStateToProps(state) {
-  return { state: state.data };
+  return { state: state.Home.data };
 }
 
 function mapDispatchToProps(dispatch) {

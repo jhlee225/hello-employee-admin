@@ -1,5 +1,5 @@
 const emId0 = 0,
-  emPosition0 = "프론트엔드",
+  emPosition0 = "프론트",
   emName0 = "김수진",
   emTeam0 = "직원관리",
   emSecurityNum0 = "909090-2",
@@ -23,7 +23,7 @@ const emId1 = 1,
   emPhone1 = "010-7799-9036";
 
 const emId2 = 2,
-  emPosition2 = "프론트엔드",
+  emPosition2 = "프론트",
   emName2 = "이재혁",
   emTeam2 = "직원관리",
   emSecurityNum2 = "909090-1",
@@ -34,7 +34,7 @@ const emId2 = 2,
   emStatus2 = 1,
   emPhone2 = "010-7799-9036";
 
-export const data = {
+const data = {
   em0: {
     emId: emId0,
     emPosition: emPosition0,
@@ -75,3 +75,5 @@ export const data = {
     emPhone: emPhone2,
   },
 };
+
+export default JSON.stringify(data);
