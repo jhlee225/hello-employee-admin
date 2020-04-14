@@ -1,9 +1,8 @@
 import React from "react";
 function EmInsult(props) {
-  const { handleInsultData, handleInsult, InsultSubmit } = props.state;
+  const { handleInsultData, InsultSubmit } = props.state;
   return (
     <>
-      <button onClick={(e) => handleInsult(e)}>X</button>
       <div className="Modal">
         <main className="modalMain">
           <div className="modalContent">

@@ -1,44 +1,68 @@
 import { createReducer, createAction } from "@reduxjs/toolkit";
 
+export const OpenHome = createAction("OpenHome");
 export const OpenInsult = createAction("OpenInsult");
 export const OpenModify = createAction("OpenModify");
-export const SetHomeData = createAction("SetHomeData");
-export const SetModifyData = createAction("SetModifyData");
-export const SetInsultData = createAction("SetInsultData");
+export const OpenModal = createAction("OpenModify");
+export const OpenRetire = createAction("OpenRetire");
+export const OpenEnroll = createAction("OpenEnroll");
 
 export const actionsHome = {
+  OpenHome: OpenHome,
   OpenInsult: OpenInsult,
   OpenModify: OpenModify,
-  SetHomeData: SetHomeData,
-  SetModifyData: SetModifyData,
-  SetInsultData: SetInsultData,
+  OpenRetire: OpenRetire,
+  OpenEnroll: OpenEnroll,
+  OpenModal: OpenModal,
 };
 export const HomeReducer = createReducer(
   {
     insult: false,
     modify: false,
-    data: { Home: null, Insult: null, Modify: null },
+    retire: false,
+    enroll: false,
+    modal: false,
   },
   {
+    [OpenHome]: (state, action) =>
+      (state = {
+        insult: false,
+        modal: false,
+        modify: false,
+        retire: false,
+        enroll: false,
+      }),
     [OpenInsult]: (state, action) =>
-      (state = action.payload.insult
-        ? { ...state, insult: false }
-        : { ...state, insult: true }),
+      (state = {
+        insult: true,
+        modify: false,
+        modal: false,
+        retire: false,
+        enroll: false,
+      }),
     [OpenModify]: (state, action) =>
       (state = action.payload.modify
         ? { ...state, modify: false }
         : { ...state, modify: true }),
-    [SetHomeData]: (state, action) =>
-      (state = { ...state, data: { ...state.data, Home: action.payload.res } }),
-    [SetInsultData]: (state, action) =>
+    [OpenRetire]: (state, action) =>
       (state = {
-        ...state,
-        data: { ...state.data, Insult: action.payload.data },
+        insult: false,
+        modify: false,
+        modal: false,
+        retire: true,
+        enroll: false,
       }),
-    [SetModifyData]: (state, action) =>
+    [OpenEnroll]: (state, action) =>
       (state = {
-        ...state,
-        data: { ...state.data, Modify: action.payload.data },
+        insult: false,
+        modify: false,
+        modal: false,
+        retire: false,
+        enroll: true,
       }),
+    [OpenModal]: (state, action) =>
+      (state = action.payload.modal
+        ? { ...state, modal: false }
+        : { ...state, modal: true }),
   }
 );

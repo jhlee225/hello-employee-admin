@@ -1,20 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { OpenModify, SetModifyData } from "../../Reducers/HomeReducer";
+import { OpenModify } from "../../Reducers/HomeReducer";
+import { SetModifyData } from "../../Reducers/DataReducer";
 import EmModifyPresenter from "./EmModifyPresenter";
+import axios from "axios";
 
-function EmInsult({ ModifyData, modify, OpenModify, SetModifyData }) {
-  const state = { ModifyData, handleModify, handleModifyData, submitModify };
-
+function EmInsult(props) {
+  const { ModifyData, modify, OpenModify, SetModifyData } = props;
   function handleModify(e) {
     OpenModify({ modify });
   }
 
   function handleModifyData(e) {
-    let data = { emId: ModifyData.emId };
+    let data = ModifyData;
     const dataForm = document.querySelectorAll(".data");
     dataForm.forEach((ele) => {
-      console.log(ele.id, ele.value);
       data = { ...data, [ele.id]: ele.value };
     });
     SetModifyData({ data });
@@ -22,14 +22,18 @@ function EmInsult({ ModifyData, modify, OpenModify, SetModifyData }) {
 
   function submitModify(e) {
     console.log(JSON.stringify(ModifyData));
+    axios
+      .put("/employee", JSON.stringify(ModifyData))
+      .then((res) => alert("직원수정 완료!", res));
   }
 
+  const state = { ModifyData, handleModify, handleModifyData, submitModify };
   return <EmModifyPresenter state={state} />;
 }
 function mapStateToProps(state) {
   return {
     modify: state.Home.modify,
-    ModifyData: state.Home.data.Modify,
+    ModifyData: state.Data.Modify,
   };
 }
 

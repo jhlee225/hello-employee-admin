@@ -1,8 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
-import EmTableList from "./EmTableListContainer";
-
-function EmTable({ data }) {
+import EnrollTableSelect from "./EnrollTableSelect";
+function EmModify(props) {
+  const { EnrollData } = props.state;
   return (
     <>
       <table>
@@ -12,12 +11,12 @@ function EmTable({ data }) {
             <th>이름</th>
             <th>부서</th>
             <th>직급</th>
-            <th>재직</th>
-            <th>선택</th>
+            <th>지문보유</th>
+            <th>등록/재등록</th>
           </tr>
         </thead>
         <tbody>
-          {data === null || data === undefined ? (
+          {EnrollData === null ? (
             <tr>
               <td>Loading...</td>
               <td>Loading...</td>
@@ -27,15 +26,14 @@ function EmTable({ data }) {
               <td>Loading...</td>
             </tr>
           ) : (
-            data.map((item, key) => <EmTableList key={key} item={item} />)
+            EnrollData.map((item, key) => (
+              <EnrollTableSelect key={key} item={item} />
+            ))
           )}
         </tbody>
       </table>
     </>
   );
 }
-function mapStateToProps(state) {
-  return { data: state.Data.Home };
-}
 
-export default connect(mapStateToProps)(EmTable);
+export default EmModify;

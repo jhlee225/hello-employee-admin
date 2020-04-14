@@ -1,34 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function Header(props) {
   return (
     <>
       <div className="header-nav-wrapper">
         <header>
           <div className="header-container">
-            <a href="/#/Home">
+            <Link to="/Home">
               <h1 className="header-logo">Hello Employee</h1>
-            </a>
+            </Link>
           </div>
         </header>
         <nav>
           <div className="nav-container">
             <ul className="globalnav">
               <li>
-                <a href="/#/Home" className="current">
+                <Link to="/Home" className="current">
                   직원
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#/Todo">근무</a>
+                <Link to="/Todo">일정</Link>
               </li>
               <li>
-                <a href="/#">작업</a>
+                <Link to="/Home">근태</Link>
               </li>
               <li>
-                <a href="/#">급여</a>
+                <Link to="/Home">휴가</Link>
               </li>
               <li>
-                <a href="/#">사업장</a>
+                <Link to="/Home">급여</Link>
               </li>
             </ul>
           </div>

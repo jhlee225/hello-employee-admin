@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { OpenModify, SetModifyData } from "../../Reducers/HomeReducer";
+import { OpenModify } from "../../Reducers/HomeReducer";
+import { SetModifyData } from "../../Reducers/DataReducer";
 import EmTableListPresenter from "./EmTableListPresenter";
 function EmTableListContainer(props) {
   const { item, modify, OpenModify, SetModifyData } = props;

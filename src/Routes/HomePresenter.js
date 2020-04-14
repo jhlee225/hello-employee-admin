@@ -1,5 +1,4 @@
 import React from "react";
-import { HashRouter as Router, Route } from "react-router-dom";
 import Header from "../Components/Common/Header";
 import Main from "../Components/Common/Main";
 import AdminError from "../Components/Common/AdminError";
@@ -10,7 +9,7 @@ function HomePresenter(props) {
   return props.state.isAdmin ? (
     <>
       <Header />
-      <Main state={props.state} />
+      <Main />
       <Footer />
       <Notice />
     </>

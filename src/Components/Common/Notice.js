@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { SetisAdmin } from "../../Reducers/SignReducer";
 function Notice({ isAdmin, SetisAdmin }) {
@@ -9,13 +10,11 @@ function Notice({ isAdmin, SetisAdmin }) {
     <>
       <div className="notice">
         <p>
-          <div>
-            관리자 모드에 접근하셨습니다. 관리자 권한이 없으실 경우 이용에
-            제한이 있을 수 있습니다.
-          </div>
-          <a onClick={HandleLogout} href="/#/">
+          관리자 모드에 접근하셨습니다. 관리자 권한이 없으실 경우 이용에 제한이
+          있을 수 있습니다.
+          <Link onClick={HandleLogout} to="/">
             <span className="notice-btn">로그아웃</span>
-          </a>
+          </Link>
         </p>
       </div>
     </>

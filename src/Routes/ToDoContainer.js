@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import ToDoPresenter from "./ToDoPresenter";
-function ToDo({ state }) {
-  return <ToDoPresenter state={state} />;
+function ToDo(props) {
+  return <ToDoPresenter state={props} />;
 }
 
 function mapStateToProps(state) {
-  return { state: state };
+  return { isAdmin: state.Sign.isAdmin };
 }
 
 function mapDispatchToProps(dispatch) {

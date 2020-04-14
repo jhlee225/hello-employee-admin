@@ -2,11 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import EmSelectPresenter from "./EmSelectPresenter";
 function EmSelect({ state }) {
-  return <EmSelectPresenter state={state} />;
+  return (
+    <>
+      <EmSelectPresenter state={state} />
+    </>
+  );
 }
 
 function mapStateToProps(state) {
-  return { state: state.Home.data };
+  return { state: state.Todo.data };
 }
 
 function mapDispatchToProps(dispatch) {

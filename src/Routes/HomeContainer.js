@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { OpenInsult, SetHomeData } from "../Reducers/HomeReducer";
-import data from "../data";
+import { OpenInsult } from "../Reducers/HomeReducer";
+import { SetHomeData } from "../Reducers/DataReducer";
 import HomePresenter from "./HomePresenter";
-//const axios = require("axios");
+import axios from "axios";
 function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
   function handleInsult(e) {
     OpenInsult({ insult });
@@ -17,18 +17,13 @@ function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
     handleInsult: handleInsult,
   };
   useEffect(() => {
-    function getData(data) {
-      const newdata = Object.values(JSON.parse(data));
-      console.log(newdata);
-      /* 
+    function getData() {
       axios
-        .post("/employeeSelectAll")
-        .then((response) => JSON.parse(response))
-        .then((res) => SetHomeData({ res }));
-      //*/
-      SetHomeData({ res: newdata });
+        .get("/employee")
+        .then((res) => console.log(res))
+        .then((res) => SetHomeData({ res: res.data.data }));
     }
-    return getData(data);
+    return getData();
   });
 
   return <HomePresenter state={state} />;

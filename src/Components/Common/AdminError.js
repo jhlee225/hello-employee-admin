@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function Main(props) {
   return (
     <div>
@@ -9,7 +10,7 @@ function Main(props) {
               <div className="Warn">
                 ERR! 잘못된 접근입니다!
                 <span>
-                  <a href="/#/">→ 관리자 로그인으로 돌아가기</a>
+                  <Link to="/">→ 관리자 로그인으로 돌아가기</Link>
                 </span>
               </div>
             </div>

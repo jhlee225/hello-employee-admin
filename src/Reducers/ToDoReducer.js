@@ -10,7 +10,7 @@ export const actionsToDo = {
 export const ToDoReducer = createReducer(
   {
     isIn: true,
-    data: null,
+    data: [0, 0, 0],
   },
   {
     [SetisIn]: (state, action) =>

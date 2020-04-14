@@ -6,11 +6,12 @@ function EmModify(props) {
     handleModifyData,
     submitModify,
   } = props.state;
-  console.log(ModifyData);
   return (
     <>
-      <button onClick={(e) => handleModify(e)}>X</button>
       <main className="modalMain">
+        <button className="X" onClick={(e) => handleModify(e)}>
+          X
+        </button>
         <div className="modalContent">
           <div className="content">
             <span>이름:</span>

@@ -1,11 +1,15 @@
 import React from "react";
 import Map from "./Map";
-import Bar from "./Bar";
+import Bar from "./BarContainer";
+import SearchBox from "./SearchBox";
+import { connect } from "react-redux";
 import EmployeeTable from "../Home/EmTable";
 import EmployeeInsult from "../Home/EmInsultContainer";
 import EmployeeModify from "../Home/EmModifyContainer";
+import EmployeeRetire from "../Home/EmRetireContainer";
+import EmFingerPrint from "../Home/EmFingerPrintContainer";
 function Main(props) {
-  return props.state.insult ? (
+  return (
     <>
       <div className="main-wrapper">
         <div className="main-contents">
@@ -14,55 +18,35 @@ function Main(props) {
             <div className="column2">
               <div className="news">
                 <ul className="news-contents">
-                  <li>
-                    <h2>직원 추가</h2>
-                    <EmployeeInsult />
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <Map />
-          </div>
-        </div>
-      </div>
-    </>
-  ) : props.state.modify ? (
-    <>
-      <div className="main-wrapper">
-        <div className="main-contents">
-          <div className="main-contents-container">
-            <Bar />
-            <div className="column2">
-              <div className="news">
-                <ul className="news-contents">
-                  <li>
-                    <h2>직원 정보 수정</h2>
-                    <EmployeeModify />
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <Map />
-          </div>
-        </div>
-      </div>
-    </>
-  ) : (
-    <>
-      <div className="main-wrapper">
-        <div className="main-contents">
-          <div className="main-contents-container">
-            <Bar />
-            <div className="column2">
-              <div className="news">
-                <ul className="news-contents">
-                  <li>
-                    <h2>직원 정보 수정</h2>
-                    <EmployeeTable />
-                    <button onClick={(e) => props.state.handleInsult(e)}>
-                      추가
-                    </button>
-                  </li>
+                  {props.insult ? (
+                    <li>
+                      <h2>직원 추가</h2>
+                      <EmployeeInsult />
+                    </li>
+                  ) : props.modify ? (
+                    <li>
+                      <h2>직원 정보 수정</h2>
+                      <EmployeeModify />
+                    </li>
+                  ) : props.retire ? (
+                    <li>
+                      <h2>직원 퇴직 처리</h2>
+                      <SearchBox />
+                      <EmployeeRetire />
+                    </li>
+                  ) : props.enroll ? (
+                    <li>
+                      <h2>직원 지문 등록</h2>
+                      <SearchBox />
+                      <EmFingerPrint />
+                    </li>
+                  ) : (
+                    <li>
+                      <h2>직원 정보 수정</h2>
+                      <SearchBox />
+                      <EmployeeTable />
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
@@ -73,5 +57,16 @@ function Main(props) {
     </>
   );
 }
+function mapStateToProps(state) {
+  return {
+    modify: state.Home.modify,
+    insult: state.Home.insult,
+    retire: state.Home.retire,
+    enroll: state.Home.enroll,
+  };
+}
 
-export default Main;
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

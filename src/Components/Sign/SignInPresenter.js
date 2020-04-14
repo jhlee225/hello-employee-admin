@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function SignInPresenter(props) {
   const { handleSignData, SubmitSignIn } = props.state;
 
@@ -12,9 +13,9 @@ function SignInPresenter(props) {
           <span>PW</span>
           <input type="password" className="data" onChange={handleSignData} />
         </div>
-        <a href="/#/Home">
+        <Link to="/Home">
           <button onClick={SubmitSignIn}>로그인</button>
-        </a>
+        </Link>
       </main>
       <footer></footer>
     </>

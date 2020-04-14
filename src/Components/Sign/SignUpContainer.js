@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { SetisIn, SetSignUpData } from "../../Reducers/SignReducer";
+import { SetisIn } from "../../Reducers/SignReducer";
+import { SetSignUpData } from "../../Reducers/DataReducer";
 import SignUpPresenter from "./SignUpPresenter";
 
 function SignUpContainer(props) {

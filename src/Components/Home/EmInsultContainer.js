@@ -1,29 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
-import { OpenInsult, SetInsultData } from "../../Reducers/HomeReducer";
+import { SetInsultData } from "../../Reducers/DataReducer";
 import EmInsultPresenter from "./EmInsultPresenter";
-function EmInsult({ insult, OpenInsult, SetInsultData }) {
+import axios from "axios";
+
+function EmInsult({ InsultData, SetInsultData }) {
   const state = {
     handleInsultData: handleInsultData,
     InsultSubmit: InsultSubmit,
-    handleInsult: handleInsult,
   };
-
-  function handleInsult(e) {
-    OpenInsult({ insult });
-  }
 
   function handleInsultData(e) {
     let data = { emId: 0 };
     const dataForm = document.querySelectorAll(".data");
     dataForm.forEach((ele) => {
-      console.log(ele.id, ele.value);
       data = { ...data, [ele.id]: ele.value };
     });
     SetInsultData({ data });
   }
 
-  function InsultSubmit(e) {}
+  function InsultSubmit(e) {
+    console.log(JSON.stringify(InsultData));
+    axios
+      .put("/employee", JSON.stringify(InsultData))
+      .then((res) => console.log(res))
+      .then((res) => alert("직원 추가 완료!"));
+  }
 
   return (
     <>
@@ -33,13 +35,12 @@ function EmInsult({ insult, OpenInsult, SetInsultData }) {
 }
 function mapStateToProps(state) {
   return {
-    insult: state.Home.insult,
+    InsultData: state.Data.Insult,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    OpenInsult: ({ insult }) => dispatch(OpenInsult({ insult })),
     SetInsultData: ({ data }) => dispatch(SetInsultData({ data })),
   };
 }

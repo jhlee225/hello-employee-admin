@@ -1,5 +1,29 @@
 @charset "utf-8";
 @import "addon.css";
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+td,
+th {
+  font-weight: 900;
+  width: 100px;
+  padding: 8px 0px;
+  border: 1px solid #b7b7b7;
+}
+thead {
+  background: #a3c675;
+  color: #fff;
+}
+tbody tr:nth-child(2n) {
+  background: #ecfafc;
+}
+tr:hover {
+  cursor: default;
+  background: #c0e690;
+}
 html {
   font-size: 20px;
 }
@@ -94,7 +118,8 @@ nav {
 .main-contents {
 }
 .main-contents-container {
-  padding: 0 0 40px 0;
+  height: 100%;
+  padding: 0 0 600px 0;
   background: #ffffff;
 }
 .column1 {
@@ -124,7 +149,7 @@ nav {
     flex: 1 1 auto;
   }
   .column3 {
-    margin: 0 20px 0 0;
+    margin: 0 50px 0 50px;
     flex: 0 0 180px;
   }
 }
@@ -239,12 +264,11 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-  padding: 20px;
+  padding: 30px;
   width: 100%;
   background-color: #e37063;
   box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.5);
 }
-
 .notice p {
   margin: 0;
   text-align: center;
@@ -252,10 +276,9 @@ footer {
   font-weight: bold;
   color: #fff;
 }
-
 .notice-btn {
   display: inlin-block;
-  margin: 0 10px;
+  margin: 0 0 0 10px;
   padding: 5px 20px;
   background-color: #fff;
   border-radius: 5px;
