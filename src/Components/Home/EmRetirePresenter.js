@@ -4,7 +4,6 @@ function EmRetire(props) {
   const { RetireData, RetireSubmit } = props.state;
   return (
     <>
-      {" "}
       <div className="news">
         <ul className="news-contents">
           <li>

@@ -23,7 +23,10 @@ function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
         SetHomeData({ data: res.data.data });
       });
     }
-    return getData();
+    getData();
+    return () => {
+      SetHomeData({ data: null });
+    };
   });
 
   return <HomePresenter state={state} />;

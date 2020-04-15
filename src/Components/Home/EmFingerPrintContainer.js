@@ -14,7 +14,10 @@ function EmFingerPrintContainer(props) {
         SetEnrollData({ data: res.data.data });
       });
     }
-    return getData();
+    getData();
+    return () => {
+      SetEnrollData({ data: null });
+    };
   });
   function HandleModal(e) {
     OpenModal({ modal });

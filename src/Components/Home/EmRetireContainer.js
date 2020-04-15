@@ -10,10 +10,13 @@ function EmRetire(props) {
       const url = "/employee";
       getEmployee(url).then((res) => {
         console.log(res);
-        SetRetireData({ data: null });
+        SetRetireData({ data: res.data.data });
       });
     }
-    return getData();
+    getData();
+    return () => {
+      SetRetireData({ data: null });
+    };
   });
 
   function RetireSubmit(e) {

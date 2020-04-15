@@ -14,10 +14,10 @@ function SearchBox(props) {
     getEmployee(`/employee/${box.value}`).then((res) => {
       console.log(res);
       retire
-        ? SetRetireData({ res: res.data.data })
+        ? SetRetireData({ data: res.data.data })
         : enroll
-        ? SetEnrollData({ res: res.data.data })
-        : SetHomeData({ res: res.data.data });
+        ? SetEnrollData({ data: res.data.data })
+        : SetHomeData({ data: res.data.data });
     });
     box.value = "";
   }
@@ -39,9 +39,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    SetHomeData: ({ res }) => dispatch(SetHomeData({ res })),
-    SetRetireData: ({ res }) => dispatch(SetRetireData({ res })),
-    SetEnrollData: ({ res }) => dispatch(SetEnrollData({ res })),
+    SetHomeData: ({ data }) => dispatch(SetHomeData({ data })),
+    SetRetireData: ({ data }) => dispatch(SetRetireData({ data })),
+    SetEnrollData: ({ data }) => dispatch(SetEnrollData({ data })),
   };
 }
 
