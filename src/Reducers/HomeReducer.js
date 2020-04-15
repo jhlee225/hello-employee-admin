@@ -3,7 +3,7 @@ import { createReducer, createAction } from "@reduxjs/toolkit";
 export const OpenHome = createAction("OpenHome");
 export const OpenInsult = createAction("OpenInsult");
 export const OpenModify = createAction("OpenModify");
-export const OpenModal = createAction("OpenModify");
+export const OpenModal = createAction("OpenModal");
 export const OpenRetire = createAction("OpenRetire");
 export const OpenEnroll = createAction("OpenEnroll");
 

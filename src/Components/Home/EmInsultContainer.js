@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { SetInsultData } from "../../Reducers/DataReducer";
+import { postEmployee } from "../../Axios";
 import EmInsultPresenter from "./EmInsultPresenter";
-import axios from "axios";
 
 function EmInsult({ InsultData, SetInsultData }) {
   const state = {
@@ -21,10 +21,10 @@ function EmInsult({ InsultData, SetInsultData }) {
 
   function InsultSubmit(e) {
     console.log(JSON.stringify(InsultData));
-    axios
-      .put("/employee", JSON.stringify(InsultData))
-      .then((res) => console.log(res))
-      .then((res) => alert("직원 추가 완료!"));
+    postEmployee("/employee", JSON.stringify(InsultData)).then((res) => {
+      console.log(res);
+      alert("직원 추가 완료!");
+    });
   }
 
   return (

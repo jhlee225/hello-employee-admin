@@ -23,7 +23,7 @@ function Map(props) {
                 insult ? "none" : retire ? "none" : enroll ? "none" : "current"
               }
             >
-              정보 수정
+              정보 조회
             </Link>
           </li>
           <li>

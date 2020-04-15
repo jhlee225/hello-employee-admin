@@ -2,13 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { SetEnrollData } from "../../Reducers/DataReducer";
 import { OpenModal } from "../../Reducers/HomeReducer";
-import axios from "axios";
+import { putEmployee } from "../../Axios";
 function EnrollTablePresenter(props) {
-  const { modal, EnrollData, SetEnrollData, OpenModal } = props;
-
   function GetPrint(e) {
     console.log(JSON.stringify(props.item));
-    axios.put("/employee/finger", JSON.stringify(props.item)).then((res) => {
+    putEmployee("/employee/finger", JSON.stringify(props.item)).then((res) => {
       console.log(res);
     });
   }

@@ -32,7 +32,7 @@ export const DataReducer = createReducer(
     [SetSignUpData]: (state, action) =>
       (state = { ...state, Sign: { In: null, Up: action.payload.data } }),
     [SetHomeData]: (state, action) =>
-      (state = { ...state, Home: action.payload.res }),
+      (state = { ...state, Home: action.payload.data }),
     [SetInsultData]: (state, action) =>
       (state = {
         ...state,

@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { SetRetireData } from "../../Reducers/DataReducer";
+import { getEmployee, putEmployee } from "../../Axios";
 import EmRetirePresenter from "./EmRetirePresenter";
-import axios from "axios";
-
 function EmRetire(props) {
   const { SetRetireData, RetireData, HomeData } = props;
   useEffect(() => {
-    if (RetireData === null) SetRetireData({ data: HomeData });
-    return () => SetRetireData({ data: null });
-  }, []);
+    function getData() {
+      const url = "/employee";
+      getEmployee(url).then((res) => {
+        console.log(res);
+        SetRetireData({ data: null });
+      });
+    }
+    return getData();
+  });
 
   function RetireSubmit(e) {
     const checkboxes = document.querySelectorAll(".check");
@@ -18,9 +23,10 @@ function EmRetire(props) {
       if (ele.checked) data.push(HomeData[ele.value]);
     });
     console.log(JSON.stringify(RetireData));
-    axios
-      .put("/employee", JSON.stringify(RetireData))
-      .then((res) => alert("퇴직처리 완료!", res));
+
+    putEmployee("/employee", JSON.stringify(RetireData)).then((res) =>
+      alert("퇴직처리 완료!", res)
+    );
   }
 
   const state = { RetireData, RetireSubmit };

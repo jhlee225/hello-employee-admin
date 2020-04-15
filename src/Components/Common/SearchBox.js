@@ -5,14 +5,13 @@ import {
   SetRetireData,
   SetHomeData,
 } from "../../Reducers/DataReducer";
-import data from "../../data";
-const axios = require("axios");
+import { getEmployee } from "../../Axios";
 function SearchBox(props) {
   const { retire, enroll, SetEnrollData, SetRetireData, SetHomeData } = props;
   function SearchName(e) {
     const box = document.querySelector(".searchBox");
     console.log(`/employee/${box.value}`);
-    axios.get(`/employee/${box.value}`).then((res) => {
+    getEmployee(`/employee/${box.value}`).then((res) => {
       console.log(res);
       retire
         ? SetRetireData({ res: res.data.data })

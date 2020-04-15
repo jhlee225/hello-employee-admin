@@ -2,9 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { OpenModify } from "../../Reducers/HomeReducer";
 import { SetModifyData } from "../../Reducers/DataReducer";
+import { putEmployee } from "../../Axios";
 import EmModifyPresenter from "./EmModifyPresenter";
-import axios from "axios";
-
 function EmInsult(props) {
   const { ModifyData, modify, OpenModify, SetModifyData } = props;
   function handleModify(e) {
@@ -22,9 +21,10 @@ function EmInsult(props) {
 
   function submitModify(e) {
     console.log(JSON.stringify(ModifyData));
-    axios
-      .put("/employee", JSON.stringify(ModifyData))
-      .then((res) => alert("직원수정 완료!", res));
+
+    putEmployee("/employee", JSON.stringify(ModifyData)).then((res) =>
+      alert("직원수정 완료!", res)
+    );
   }
 
   const state = { ModifyData, handleModify, handleModifyData, submitModify };

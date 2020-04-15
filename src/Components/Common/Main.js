@@ -42,7 +42,7 @@ function Main(props) {
                     </li>
                   ) : (
                     <li>
-                      <h2>직원 정보 수정</h2>
+                      <h2>직원 정보 조회</h2>
                       <SearchBox />
                       <EmployeeTable />
                     </li>

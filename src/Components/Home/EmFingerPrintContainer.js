@@ -2,18 +2,20 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { SetEnrollData } from "../../Reducers/DataReducer";
 import { OpenModal } from "../../Reducers/HomeReducer";
+import { getEmployee } from "../../Axios";
 import EmFingerPrintPresenter from "./EmFingerPrintPresenter";
-import data from "../../data";
-import Axios from "axios";
 function EmFingerPrintContainer(props) {
   const { SetEnrollData, EnrollData, modal, OpenModal } = props;
   useEffect(() => {
-    if (EnrollData === null)
-      Axios.get("/emEmployee").then((res) =>
-        SetEnrollData({ data: res.data.data })
-      );
-    return () => SetEnrollData({ data: null });
-  }, []);
+    function getData() {
+      const url = "/employee";
+      getEmployee(url).then((res) => {
+        console.log(res);
+        SetEnrollData({ data: res.data.data });
+      });
+    }
+    return getData();
+  });
   function HandleModal(e) {
     OpenModal({ modal });
   }

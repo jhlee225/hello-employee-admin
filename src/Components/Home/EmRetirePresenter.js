@@ -21,14 +21,7 @@ function EmRetire(props) {
               </thead>
               <tbody>
                 {RetireData === null ? (
-                  <tr>
-                    <td>loading...</td>
-                    <td>loading...</td>
-                    <td>loading...</td>
-                    <td>loading...</td>
-                    <td>loading...</td>
-                    <td>loading...</td>
-                  </tr>
+                  <></>
                 ) : (
                   RetireData.map((item, key) => (
                     <EmTableSelect key={key} item={item} />

@@ -6,9 +6,9 @@ import Sign from "./Routes/SignContainer";
 function App() {
   return (
     <Router>
-      <Route path="/Home" exact component={Home}></Route>
-      <Route path="/Todo" exact component={ToDo}></Route>
-      <Route path="/" exact component={Sign}></Route>
+      <Route path="/Home" component={Home}></Route>
+      <Route path="/Todo" component={ToDo}></Route>
+      <Route path="/" component={Sign}></Route>
     </Router>
   );
 }

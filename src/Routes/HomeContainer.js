@@ -3,12 +3,11 @@ import { connect } from "react-redux";
 import { OpenInsult } from "../Reducers/HomeReducer";
 import { SetHomeData } from "../Reducers/DataReducer";
 import HomePresenter from "./HomePresenter";
-import axios from "axios";
+import { getEmployee } from "../Axios";
 function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
   function handleInsult(e) {
     OpenInsult({ insult });
   }
-
   const state = {
     isAdmin: isAdmin,
     modify: modify,
@@ -18,10 +17,11 @@ function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
   };
   useEffect(() => {
     function getData() {
-      axios
-        .get("/employee")
-        .then((res) => console.log(res))
-        .then((res) => SetHomeData({ res: res.data.data }));
+      const url = "/employee";
+      getEmployee(url).then((res) => {
+        console.log(res);
+        SetHomeData({ data: res.data.data });
+      });
     }
     return getData();
   });
@@ -41,7 +41,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     OpenInsult: ({ insult }) => dispatch(OpenInsult({ insult })),
-    SetHomeData: ({ res }) => dispatch(SetHomeData({ res })),
+    SetHomeData: ({ data }) => dispatch(SetHomeData({ data })),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

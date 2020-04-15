@@ -17,14 +17,7 @@ function EmModify(props) {
         </thead>
         <tbody>
           {EnrollData === null ? (
-            <tr>
-              <td>Loading...</td>
-              <td>Loading...</td>
-              <td>Loading...</td>
-              <td>Loading...</td>
-              <td>Loading...</td>
-              <td>Loading...</td>
-            </tr>
+            <></>
           ) : (
             EnrollData.map((item, key) => (
               <EnrollTableSelect key={key} item={item} />

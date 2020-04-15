@@ -18,14 +18,7 @@ function EmTable({ data }) {
         </thead>
         <tbody>
           {data === null || data === undefined ? (
-            <tr>
-              <td>Loading...</td>
-              <td>Loading...</td>
-              <td>Loading...</td>
-              <td>Loading...</td>
-              <td>Loading...</td>
-              <td>Loading...</td>
-            </tr>
+            <></>
           ) : (
             data.map((item, key) => <EmTableList key={key} item={item} />)
           )}
