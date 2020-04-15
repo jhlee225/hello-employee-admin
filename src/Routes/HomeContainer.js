@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { OpenInsult } from "../Reducers/HomeReducer";
-import { SetHomeData } from "../Reducers/DataReducer";
+import {
+  SetHomeData,
+  SetEnrollData,
+  SetRetireData,
+} from "../Reducers/DataReducer";
 import HomePresenter from "./HomePresenter";
 import { getEmployee } from "../Axios";
 function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
@@ -26,6 +30,8 @@ function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
     getData();
     return () => {
       SetHomeData({ data: null });
+      SetRetireData({ data: null });
+      SetEnrollData({ data: null });
     };
   });
 
@@ -45,6 +51,8 @@ function mapDispatchToProps(dispatch) {
   return {
     OpenInsult: ({ insult }) => dispatch(OpenInsult({ insult })),
     SetHomeData: ({ data }) => dispatch(SetHomeData({ data })),
+    SetEnrollData: ({ data }) => dispatch(SetEnrollData({ data })),
+    SetRetireData: ({ data }) => dispatch(SetRetireData({ data })),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

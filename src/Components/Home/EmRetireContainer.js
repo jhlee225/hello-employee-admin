@@ -14,9 +14,6 @@ function EmRetire(props) {
       });
     }
     getData();
-    return () => {
-      SetRetireData({ data: null });
-    };
   });
 
   function RetireSubmit(e) {

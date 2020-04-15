@@ -15,9 +15,6 @@ function EmFingerPrintContainer(props) {
       });
     }
     getData();
-    return () => {
-      SetEnrollData({ data: null });
-    };
   });
   function HandleModal(e) {
     OpenModal({ modal });
