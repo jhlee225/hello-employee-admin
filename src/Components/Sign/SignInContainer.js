@@ -2,10 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { SetisIn, SetisAdmin } from "../../Reducers/SignReducer";
 import { SetSignInData } from "../../Reducers/DataReducer";
+import { OpenHome } from "../../Reducers/HomeReducer";
 import SignInPresenter from "./SignInPresenter";
 
 function SignInContainer(props) {
-  const { isIn, isAdmin, SetisIn, SetSignInData, SetisAdmin } = props;
+  const { isIn, isAdmin, SetisIn, SetSignInData, SetisAdmin, OpenHome } = props;
 
   function handleClick(e) {
     SetisIn({ isIn });
@@ -17,6 +18,7 @@ function SignInContainer(props) {
     SetSignInData({ data });
   }
   function SubmitSignIn(e) {
+    OpenHome();
     SetisAdmin({ isAdmin });
   }
   const state = {
@@ -31,6 +33,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
+    OpenHome: () => dispatch(OpenHome()),
     SetisIn: ({ isIn }) => dispatch(SetisIn({ isIn })),
     SetisAdmin: ({ isAdmin }) => dispatch(SetisAdmin({ isAdmin })),
     SetSignInData: ({ data }) => dispatch(SetSignInData({ data })),

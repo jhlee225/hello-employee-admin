@@ -10,6 +10,7 @@ function EmInsult({ InsultData, SetInsultData }) {
     InsultSubmit: InsultSubmit,
   };
 
+  SetInsultData({ data: null });
   function handleInsultData(e) {
     let data = { emId: 0 };
     const dataForm = document.querySelectorAll(".data");

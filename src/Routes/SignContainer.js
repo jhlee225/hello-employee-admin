@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import SignPresenter from "./SignPresenter";
-function Sign({ isIn }) {
+function Sign(props) {
+  const { isIn } = props;
   const state = { isIn: isIn };
   return <SignPresenter state={state} />;
 }

@@ -19,6 +19,7 @@ function SearchBox(props) {
         ? SetEnrollData({ data: res.data.data })
         : SetHomeData({ data: res.data.data });
     });
+
     box.value = "";
   }
   return (

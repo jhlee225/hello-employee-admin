@@ -1,32 +1,28 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { SetRetireData } from "../../Reducers/DataReducer";
-import { getEmployee, putEmployee } from "../../Axios";
+import { putEmployee } from "../../Axios";
 import EmRetirePresenter from "./EmRetirePresenter";
 function EmRetire(props) {
-  const { SetRetireData, RetireData, HomeData } = props;
-  useEffect(() => {
-    function getData() {
-      const url = "/employee";
-      getEmployee(url).then((res) => {
-        console.log(res);
-        SetRetireData({ data: res.data.data });
-      });
-    }
-    getData();
-  });
+  const { RetireData } = props;
 
   function RetireSubmit(e) {
-    const checkboxes = document.querySelectorAll(".check");
+    const checkboxes = document.getElementsByClassName("check");
     let data = [];
-    checkboxes.forEach((ele) => {
-      if (ele.checked) data.push(HomeData[ele.value]);
-    });
-    console.log(JSON.stringify(RetireData));
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        console.log(checkboxes[i]);
+        data.push(RetireData[i]);
+      }
+    }
+    console.log(data);
+    data.forEach((ele) => {
+      console.log(JSON.stringify(ele));
 
-    putEmployee("/employee", JSON.stringify(RetireData)).then((res) =>
-      alert("퇴직처리 완료!", res)
-    );
+      putEmployee("/employee", JSON.stringify(ele)).then((res) =>
+        alert("퇴직처리 완료!", res)
+      );
+    });
   }
 
   const state = { RetireData, RetireSubmit };
@@ -34,7 +30,6 @@ function EmRetire(props) {
 }
 function mapStateToProps(state) {
   return {
-    HomeData: state.Data.Home,
     RetireData: state.Data.Retire,
   };
 }

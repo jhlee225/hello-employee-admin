@@ -7,8 +7,10 @@ import {
   SetRetireData,
 } from "../Reducers/DataReducer";
 import HomePresenter from "./HomePresenter";
-import { getEmployee } from "../Axios";
-function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
+import { getEmployee } from "../Axios.js";
+function Home(props) {
+  const { selected, isAdmin, insult, modify } = props;
+  const { OpenInsult, SetHomeData, SetEnrollData, SetRetireData } = props;
   function handleInsult(e) {
     OpenInsult({ insult });
   }
@@ -25,6 +27,8 @@ function Home({ isAdmin, insult, modify, selected, OpenInsult, SetHomeData }) {
       getEmployee(url).then((res) => {
         console.log(res);
         SetHomeData({ data: res.data.data });
+        SetRetireData({ data: res.data.data });
+        SetEnrollData({ data: res.data.data });
       });
     }
     getData();

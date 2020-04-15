@@ -18,7 +18,7 @@ function EmSelectPresenter(props) {
         <span>{props.item.emStatus}</span>
       </td>
       <td>
-        <input type="checkbox" className="check" value={props.item.emId} />
+        <input type="checkbox" className="check" />
       </td>
     </tr>
   );
