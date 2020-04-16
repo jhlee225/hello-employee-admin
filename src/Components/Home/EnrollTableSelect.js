@@ -11,7 +11,7 @@ function EnrollTablePresenter(props) {
     putEmployee("/employee/finger", JSON.stringify(props.item)).then((res) => {
       console.log(res);
       alert("지문을 확인합니다 지문을 한번더 입력해 주세요");
-      axios.post("/commute").then((result) => {
+      axios.put("/finger/verify").then((result) => {
         alert("지문이 입력되었습니다.");
         console.log(result);
         //       result ? ...
