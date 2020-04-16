@@ -6,8 +6,8 @@ import {
   OpenRetire,
   OpenEnroll,
 } from "../../Reducers/HomeReducer";
-import BarPresenter from "./BarPresenter";
-function Map({
+import BarPresenter from "./HomeBarPresenter";
+function Bar({
   insult,
   retire,
   enroll,
@@ -59,4 +59,4 @@ function mapDispatchToProps(dispatch) {
     OpenEnroll: () => dispatch(OpenEnroll()),
   };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Map);
+export default connect(mapStateToProps, mapDispatchToProps)(Bar);

@@ -8,6 +8,7 @@ import {
 } from "../Reducers/DataReducer";
 import HomePresenter from "./HomePresenter";
 import { getEmployee } from "../Axios.js";
+import Axios from "axios";
 function Home(props) {
   const { selected, isAdmin, insult, modify } = props;
   const { OpenInsult, SetHomeData, SetEnrollData, SetRetireData } = props;
@@ -30,6 +31,13 @@ function Home(props) {
         SetRetireData({ data: res.data.data });
         SetEnrollData({ data: res.data.data });
       });
+      /*Axios.get(
+        "http://api.openweathermap.org/data/2.5/forecast?q=Seoul&appid=18869f4f01a37ac87f4c23f6fc1c6a21"
+      ).then((res) => {
+        SetHomeData({ data: res.data.list });
+        SetRetireData({ data: res.data.list });
+        SetEnrollData({ data: res.data.list });
+      });*/
     }
     getData();
     return () => {

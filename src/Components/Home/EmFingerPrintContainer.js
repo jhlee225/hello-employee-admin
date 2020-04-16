@@ -5,6 +5,7 @@ import { OpenModal } from "../../Reducers/HomeReducer";
 import EmFingerPrintPresenter from "./EmFingerPrintPresenter";
 function EmFingerPrintContainer(props) {
   const { EnrollData, modal, OpenModal } = props;
+
   function HandleModal(e) {
     OpenModal({ modal });
   }

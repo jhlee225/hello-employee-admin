@@ -12,9 +12,9 @@ function Notice({ isAdmin, SetisAdmin }) {
         <p>
           관리자 모드에 접근하셨습니다. 관리자 권한이 없으실 경우 이용에 제한이
           있을 수 있습니다.
-          <Link onClick={HandleLogout} to="/">
+          <a onClick={HandleLogout} href="/WEB-INF/views/employee_index.jsp">
             <span className="notice-btn">로그아웃</span>
-          </Link>
+          </a>
         </p>
       </div>
     </>

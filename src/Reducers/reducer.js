@@ -7,6 +7,6 @@ import { DataReducer } from "./DataReducer";
 export const rootReducer = combineReducers({
   Home: HomeReducer,
   Sign: SignReducer,
-  Todo: ToDoReducer,
+  ToDo: ToDoReducer,
   Data: DataReducer,
 });

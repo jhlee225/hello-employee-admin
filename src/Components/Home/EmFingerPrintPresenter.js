@@ -1,10 +1,10 @@
 import React from "react";
 import EnrollTableSelect from "./EnrollTableSelect";
-function EmModify(props) {
+function EmFingerPrint(props) {
   const { EnrollData } = props.state;
   return (
     <>
-      <table>
+      <table className="HomeTable">
         <thead>
           <tr>
             <th>ID</th>
@@ -29,4 +29,4 @@ function EmModify(props) {
   );
 }
 
-export default EmModify;
+export default EmFingerPrint;

@@ -13,6 +13,7 @@ function EmRetire(props) {
       if (checkboxes[i].checked) {
         console.log(checkboxes[i]);
         data.push(RetireData[i]);
+        checkboxes[i].checked = false;
       }
     }
     console.log(data);

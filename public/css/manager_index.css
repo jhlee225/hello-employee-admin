@@ -1,29 +1,6 @@
 @charset "utf-8";
 @import "addon.css";
-table {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: center;
-  margin-top: 50px;
-}
-td,
-th {
-  font-weight: 900;
-  width: 100px;
-  padding: 8px 0px;
-  border: 1px solid #b7b7b7;
-}
-thead {
-  background: #a3c675;
-  color: #fff;
-}
-tbody tr:nth-child(2n) {
-  background: #ecfafc;
-}
-tr:hover {
-  cursor: default;
-  background: #c0e690;
-}
+
 html {
   font-size: 20px;
 }
@@ -38,7 +15,7 @@ html * {
 }
 body {
   margin: 0;
-  background: url(../images/bg.png);
+  background: url(../resources/images/bg.png);
   font-family: "Do Hyeon", sans-serif;
 }
 /* 스크롤 고정 */
@@ -284,4 +261,74 @@ footer {
   border-radius: 5px;
   font-weight: bold;
   color: #e37063;
+}
+
+/*캘린더*/
+table {
+  font-family: "Do Hyeon", sans-serif;
+  width: 100%;
+  font-size: 20px;
+  padding-top: 10px;
+}
+table thead {
+  background-color: #a3c675;
+  font-size: 25px;
+  color: #fff;
+}
+table thead tr th {
+  padding: 15px 10px;
+  font-size: 25px;
+}
+table tbody tr td {
+  padding: 15px 10px;
+  text-align: center;
+  border: 1px solid #cdcdcd;
+  color: #4e4e4e;
+}
+table tbody tr td:first-child {
+  width: 20px;
+}
+table tbody tr.hours td {
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+}
+table tbody tr.hours td:hover {
+  background-color: yellowgreen;
+}
+table tbody tr td span {
+  display: table;
+  width: 100%;
+}
+
+.HomeTable {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.HomeTable td,
+.HomeTable th {
+  font-weight: 900;
+  width: 100px;
+  padding: 8px 0px;
+  border: 1px solid #b7b7b7;
+}
+.HomeTable head {
+  background: #a3c675;
+  color: #fff;
+}
+.HomeTable tbody tr:nth-child(2n) {
+  background: #ecfafc;
+}
+.HomeTable tr:hover {
+  cursor: default;
+  background: #c0e690;
+}
+
+.moveDate {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

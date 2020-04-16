@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "../Components/Common/Header";
+import Header from "../Components/ToDo/TodoHeader";
+import Main from "../Components/ToDo/TodoMain";
 import Footer from "../Components/Common/Footer";
 import Notice from "../Components/Common/Notice";
 import AdminError from "../Components/Common/AdminError";
-import EmployeeSelect from "../Components/ToDo/EmSelectContainer";
 function ToDoPresenter(props) {
   return props.state.isAdmin ? (
     <>
       <Header />
-      <EmployeeSelect />
+      <Main />
       <Footer />
       <Notice />
     </>
@@ -20,4 +20,5 @@ function ToDoPresenter(props) {
     </>
   );
 }
+
 export default ToDoPresenter;

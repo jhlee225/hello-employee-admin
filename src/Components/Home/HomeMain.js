@@ -1,13 +1,13 @@
 import React from "react";
-import Map from "./Map";
-import Bar from "./BarContainer";
-import SearchBox from "./SearchBox";
+import Map from "../Common/Map";
+import Bar from "./HomeBarContainer";
+import SearchBox from "../Common/SearchBox";
 import { connect } from "react-redux";
-import EmployeeTable from "../Home/EmTable";
-import EmployeeInsult from "../Home/EmInsultContainer";
-import EmployeeModify from "../Home/EmModifyContainer";
-import EmployeeRetire from "../Home/EmRetireContainer";
-import EmFingerPrint from "../Home/EmFingerPrintContainer";
+import EmployeeTable from "./EmTable";
+import EmployeeInsult from "./EmInsultContainer";
+import EmployeeModify from "./EmModifyContainer";
+import EmployeeRetire from "./EmRetireContainer";
+import EmFingerPrint from "./EmFingerPrintContainer";
 function Main(props) {
   return (
     <>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Map(props) {
+function Bar(props) {
   const {
     insult,
     retire,
@@ -61,4 +61,4 @@ function Map(props) {
     </>
   );
 }
-export default Map;
+export default Bar;

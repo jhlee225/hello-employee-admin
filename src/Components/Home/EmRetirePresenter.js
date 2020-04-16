@@ -4,7 +4,7 @@ function EmRetire(props) {
   const { RetireData, RetireSubmit } = props.state;
   return (
     <>
-      <table>
+      <table className="HomeTable">
         <thead>
           <tr>
             <th>ID</th>

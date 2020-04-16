@@ -1,23 +1,40 @@
 import { createReducer, createAction } from "@reduxjs/toolkit";
 
-export const SetisIn = createAction("SetisIn");
-export const SetToDoData = createAction("SetToDoData");
+export const SetTodoModify = createAction("SetTodoModify");
+export const OpenTodo = createAction("OpenTodo");
+export const OpenTodoInsult = createAction("OpenTodoInsult");
+export const OpenTodoRemove = createAction("OpenTodoRemove");
 
 export const actionsToDo = {
-  SetisIn: SetisIn,
-  SetToDoData: SetToDoData,
+  SetTodoModify: SetTodoModify,
+  OpenTodo: OpenTodo,
+  OpenTodoInsult: OpenTodoInsult,
+  OpenTodoRemove: OpenTodoRemove,
 };
 export const ToDoReducer = createReducer(
+  { insult: false, modify: false, remove: false },
   {
-    isIn: true,
-    data: [0, 0, 0],
-  },
-  {
-    [SetisIn]: (state, action) =>
-      (state = action.payload.isIn
-        ? { ...state, isIn: false }
-        : { ...state, isIn: true }),
-    [SetToDoData]: (state, action) =>
-      (state = { ...state, data: { Up: null, In: action.payload.data } }),
+    [SetTodoModify]: (state, action) =>
+      (state = action.payload.modify
+        ? { ...state, modify: false }
+        : { ...state, modify: true }),
+    [OpenTodo]: (state, action) =>
+      (state = {
+        insult: false,
+        modify: false,
+        remove: false,
+      }),
+    [OpenTodoRemove]: (state, action) =>
+      (state = {
+        insult: false,
+        modify: false,
+        remove: true,
+      }),
+    [OpenTodoInsult]: (state, action) =>
+      (state = {
+        insult: true,
+        modify: false,
+        remove: false,
+      }),
   }
 );

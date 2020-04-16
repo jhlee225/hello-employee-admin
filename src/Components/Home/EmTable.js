@@ -5,7 +5,7 @@ import EmTableList from "./EmTableListContainer";
 function EmTable({ data }) {
   return (
     <>
-      <table>
+      <table className="HomeTable">
         <thead>
           <tr>
             <th>ID</th>
