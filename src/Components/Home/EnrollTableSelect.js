@@ -36,9 +36,9 @@ function EnrollTablePresenter(props) {
       <td>{props.item.emName}</td>
       <td>{props.item.emTeam}</td>
       <td>{props.item.emPosition}</td>
-      <td>{props.item.emFingerPrint === null ? "미보유" : "보유중"}</td>
+      <td>{props.item.emFingerPrint === 0 ? "미보유" : "보유중"}</td>
       <td value={props.item.emId} onClick={GetPrint}>
-        {props.item.emFingerPrint === null ? "등록" : "재등록"}
+        {props.item.emFingerPrint === 0 ? "등록" : "재등록"}
       </td>
     </tr>
   );

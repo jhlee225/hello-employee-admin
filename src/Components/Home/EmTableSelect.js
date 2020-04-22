@@ -31,14 +31,14 @@ function EmSelectPresenter(props) {
       <td>{props.item.emTeam}</td>
       <td>{props.item.emPosition}</td>
       <td>
-        {props.item.emStatus === "0"
+        {props.item.emStatus === 0
           ? "휴가"
-          : props.item.emStatus === "1"
+          : props.item.emStatus === 1
           ? "재직중"
           : "퇴직"}
       </td>
       <td onClick={SubmitStatus}>
-        {props.item.emStatus === "2" ? "퇴직취소" : "퇴직"}
+        {props.item.emStatus === 2 ? "퇴직취소" : "퇴직"}
       </td>
     </tr>
   );

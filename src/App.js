@@ -7,6 +7,7 @@ import Log from "./Routes/LogContainer";
 function App() {
   return (
     <Router>
+      <Route exact path="/" component={Sign}></Route>
       <Route path="/Log" component={Log}></Route>
       <Route path="/Home" component={Home}></Route>
       <Route path="/Todo" component={ToDo}></Route>

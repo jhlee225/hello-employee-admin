@@ -4,12 +4,11 @@ import { SetisIn, SetisAdmin } from "../../Reducers/SignReducer";
 import { SetSignInData } from "../../Reducers/DataReducer";
 import { OpenHome } from "../../Reducers/HomeReducer";
 import SignInPresenter from "./SignInPresenter";
-import { postEmployee } from "../../Axios";
+import { getEmployee } from "../../Axios";
 
 function SignInContainer(props) {
   const {
     isIn,
-    isAdmin,
     SignData,
     SetisIn,
     SetSignInData,
@@ -33,22 +32,24 @@ function SignInContainer(props) {
     if (SignData === null) {
       alert("비밀번호를 입력해주세요!");
     } else {
-      const newdata = JSON.stringify({ pw: SignData.In });
-      console.log(newdata);
-      postEmployee("/shop/login", newdata)
+      console.log(`/shop/login/${SignData.In}`);
+      getEmployee(`/shop/login/${SignData.In}`)
         .then((res) => {
-          function yesOrNo() {
+          function yes() {
             alert("관리자 로그인 성공!");
-            SetisAdmin({ isAdmin });
+            SetisAdmin({ isAdmin: false });
+          }
+          function no() {
+            alert("비밀번호가 틀렸습니다!");
+            SetisAdmin({ isAdmin: true });
           }
           console.log(res);
-          res.data ? yesOrNo() : alert("비밀번호가 틀렸습니다!");
+          res.data.data === 1 ? yes() : no();
         })
         .catch((err) => {
           console.log(err);
         });
     }
-    SetisAdmin({ isAdmin });
   }
 
   const state = {
