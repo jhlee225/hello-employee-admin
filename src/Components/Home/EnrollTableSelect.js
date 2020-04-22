@@ -1,19 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
-import { SetEnrollData } from "../../Reducers/DataReducer";
 import { OpenModal } from "../../Reducers/HomeReducer";
-import { putEmployee, postEmployee } from "../../Axios";
+import { putEmployee } from "../../Axios";
 const axios = require("axios");
+
 function EnrollTablePresenter(props) {
+  const { modal, OpenModal } = props;
   function GetPrint(e) {
     alert("지문 등록 시작");
+    OpenModal({ modal: modal });
     console.log(JSON.stringify(props.item));
     putEmployee("/employee/finger", JSON.stringify(props.item)).then((res) => {
       console.log(res);
+
       alert("지문을 확인합니다 지문을 한번더 입력해 주세요");
       axios.put("/finger/verify").then((result) => {
-        alert("지문이 입력되었습니다.");
+        result.data
+          ? alert("지문이 입력되었습니다.")
+          : alert("잘못된 지문이 들어갔습니다! 재등록을 해주시길 바랍니다.");
+
         console.log(result);
+        OpenModal({ modal: modal });
         //       result ? ...
       });
       //등록실패는 없음.
@@ -29,23 +36,21 @@ function EnrollTablePresenter(props) {
       <td>{props.item.emName}</td>
       <td>{props.item.emTeam}</td>
       <td>{props.item.emPosition}</td>
-      <td>{props.item.emFingerPrint === 0 ? "X" : "O"}</td>
+      <td>{props.item.emFingerPrint === null ? "미보유" : "보유중"}</td>
       <td value={props.item.emId} onClick={GetPrint}>
-        {props.item.emFingerPrint === 0 ? "등록" : "재등록"}
+        {props.item.emFingerPrint === null ? "등록" : "재등록"}
       </td>
     </tr>
   );
 }
 function mapStateToProps(state) {
   return {
-    EnrollData: state.Data.Enroll,
     modal: state.Home.modal,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    SetEnrollData: ({ data }) => dispatch(SetEnrollData({ data })),
     OpenModal: ({ modal }) => dispatch(OpenModal({ modal })),
   };
 }

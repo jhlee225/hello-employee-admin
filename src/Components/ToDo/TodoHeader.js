@@ -23,13 +23,7 @@ function Header(props) {
                 </Link>
               </li>
               <li>
-                <Link to="/Home">근태</Link>
-              </li>
-              <li>
-                <Link to="/Home">휴가</Link>
-              </li>
-              <li>
-                <Link to="/Home">급여</Link>
+                <Link to="/Log">근태</Link>
               </li>
             </ul>
           </div>

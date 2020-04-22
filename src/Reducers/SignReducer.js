@@ -9,7 +9,7 @@ export const actionsSign = {
 };
 export const SignReducer = createReducer(
   {
-    isAdmin: false,
+    isAdmin: true,
     isIn: true,
   },
   {

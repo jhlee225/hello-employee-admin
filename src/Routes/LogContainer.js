@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { OpenInsult } from "../Reducers/HomeReducer";
-import {
-  SetTodoData,
-  SetEnrollData,
-  SetRetireData,
-} from "../Reducers/DataReducer";
-import ToDoPresenter from "./ToDoPresenter";
+import { SetTodoData } from "../Reducers/DataReducer";
+import LogPresenter from "./LogPresenter";
 import { getEmployee } from "../Axios.js";
 //import Axios from "axios";
 function ToDo(props) {
@@ -26,7 +22,6 @@ function ToDo(props) {
     function getData() {
       const url = "/commute/log";
       getEmployee(url).then((res) => {
-        console.log(res);
         SetTodoData({ data: res.data.data });
       });
       /*Axios.get(
@@ -36,12 +31,9 @@ function ToDo(props) {
       });//*/
     }
     getData();
-    /*return () => {
-      SetTodoData({ data: null });
-    };*/
   });
 
-  return <ToDoPresenter state={state} />;
+  return <LogPresenter state={state} />;
 }
 
 function mapStateToProps(state) {
@@ -57,8 +49,6 @@ function mapDispatchToProps(dispatch) {
   return {
     OpenInsult: ({ insult }) => dispatch(OpenInsult({ insult })),
     SetTodoData: ({ data }) => dispatch(SetTodoData({ data })),
-    SetEnrollData: ({ data }) => dispatch(SetEnrollData({ data })),
-    SetRetireData: ({ data }) => dispatch(SetRetireData({ data })),
   };
 }
 

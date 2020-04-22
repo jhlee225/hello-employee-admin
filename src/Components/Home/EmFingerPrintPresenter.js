@@ -1,5 +1,6 @@
 import React from "react";
 import EnrollTableSelect from "./EnrollTableSelect";
+
 function EmFingerPrint(props) {
   const { EnrollData } = props.state;
   return (
@@ -12,7 +13,7 @@ function EmFingerPrint(props) {
             <th>부서</th>
             <th>직급</th>
             <th>지문보유</th>
-            <th>등록/재등록</th>
+            <th>등록</th>
           </tr>
         </thead>
         <tbody>

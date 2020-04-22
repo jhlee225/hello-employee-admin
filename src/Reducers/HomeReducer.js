@@ -6,17 +6,20 @@ export const OpenModify = createAction("OpenModify");
 export const OpenModal = createAction("OpenModal");
 export const OpenRetire = createAction("OpenRetire");
 export const OpenEnroll = createAction("OpenEnroll");
+export const SetIsLoad = createAction("SetIsLoad");
 
 export const actionsHome = {
   OpenHome: OpenHome,
   OpenInsult: OpenInsult,
   OpenModify: OpenModify,
   OpenRetire: OpenRetire,
-  OpenEnroll: OpenEnroll,
   OpenModal: OpenModal,
+  SetIsLoad: SetIsLoad,
+  OpenEnroll: OpenEnroll,
 };
 export const HomeReducer = createReducer(
   {
+    isload: false,
     insult: false,
     modify: false,
     retire: false,
@@ -40,6 +43,10 @@ export const HomeReducer = createReducer(
         retire: false,
         enroll: false,
       }),
+    [SetIsLoad]: (state, action) =>
+      (state = action.payload.isload
+        ? { ...state, isload: false }
+        : { ...state, isload: true }),
     [OpenModify]: (state, action) =>
       (state = action.payload.modify
         ? { ...state, modify: false }

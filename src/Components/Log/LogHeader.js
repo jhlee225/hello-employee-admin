@@ -15,15 +15,15 @@ function Header(props) {
           <div className="nav-container">
             <ul className="globalnav">
               <li>
-                <Link to="/Home" className="current">
-                  직원
-                </Link>
+                <Link to="/Home">직원</Link>
               </li>
               <li>
                 <Link to="/Todo">일정</Link>
               </li>
               <li>
-                <Link to="/Log">근태</Link>
+                <Link to="/Log" className="current">
+                  근태
+                </Link>
               </li>
             </ul>
           </div>

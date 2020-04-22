@@ -5,15 +5,18 @@ export const SetModifyData = createAction("SetModifyData");
 export const SetInsultData = createAction("SetInsultData");
 export const SetRetireData = createAction("SetRetireData");
 export const SetSignInData = createAction("SetSignInData");
-export const SetSignUpData = createAction("SetSignUpData");
+export const SetLogData = createAction("SetLogData");
 export const SetEnrollData = createAction("SetEnrollData");
+export const SetTodoData = createAction("SetTodoData");
+
 export const actionsData = {
   SetSignInData: SetSignInData,
-  SetSignUpData: SetSignUpData,
+  SetLogData: SetLogData,
   SetHomeData: SetHomeData,
   SetModifyData: SetModifyData,
   SetInsultData: SetInsultData,
   SetRetireData: SetRetireData,
+  SetTodoData: SetTodoData,
   SetEnrollData: SetEnrollData,
 };
 export const DataReducer = createReducer(
@@ -29,8 +32,8 @@ export const DataReducer = createReducer(
   {
     [SetSignInData]: (state, action) =>
       (state = { ...state, Sign: { Up: null, In: action.payload.data } }),
-    [SetSignUpData]: (state, action) =>
-      (state = { ...state, Sign: { In: null, Up: action.payload.data } }),
+    [SetLogData]: (state, action) =>
+      (state = { ...state, Log: action.payload.data }),
     [SetHomeData]: (state, action) =>
       (state = { ...state, Home: action.payload.data }),
     [SetInsultData]: (state, action) =>
@@ -42,6 +45,11 @@ export const DataReducer = createReducer(
       (state = {
         ...state,
         Modify: action.payload.data,
+      }),
+    [SetTodoData]: (state, action) =>
+      (state = {
+        ...state,
+        Todo: action.payload.data,
       }),
     [SetRetireData]: (state, action) =>
       (state = {

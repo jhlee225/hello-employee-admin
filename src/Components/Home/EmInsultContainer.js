@@ -4,20 +4,21 @@ import { SetInsultData } from "../../Reducers/DataReducer";
 import { postEmployee } from "../../Axios";
 import EmInsultPresenter from "./EmInsultPresenter";
 
-function EmInsult({ InsultData, SetInsultData }) {
+function EmInsult(props) {
+  const { InsultData, SetInsultData } = props;
   const state = {
     handleInsultData: handleInsultData,
     InsultSubmit: InsultSubmit,
   };
 
-  SetInsultData({ data: null });
   function handleInsultData(e) {
     let data = { emId: 0 };
     const dataForm = document.querySelectorAll(".data");
     dataForm.forEach((ele) => {
       data = { ...data, [ele.id]: ele.value };
     });
-    SetInsultData({ data });
+
+    SetInsultData({ data: data });
   }
 
   function InsultSubmit(e) {

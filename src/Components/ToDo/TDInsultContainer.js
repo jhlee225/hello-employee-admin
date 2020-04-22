@@ -4,16 +4,17 @@ import { SetInsultData } from "../../Reducers/DataReducer";
 import { postEmployee } from "../../Axios";
 import EmInsultPresenter from "./TDInsultPresenter";
 
-function EmInsult({ InsultData, SetInsultData }) {
+function EmInsult({ InsultData, SetInsultData, TodoData }) {
   const state = {
+    data: TodoData,
     handleInsultData: handleInsultData,
     InsultSubmit: InsultSubmit,
   };
 
-  SetInsultData({ data: null });
   function handleInsultData(e) {
     let data = { emId: 0 };
     const dataForm = document.querySelectorAll(".data");
+    console.log(dataForm);
     dataForm.forEach((ele) => {
       data = { ...data, [ele.id]: ele.value };
     });
@@ -37,6 +38,7 @@ function EmInsult({ InsultData, SetInsultData }) {
 function mapStateToProps(state) {
   return {
     InsultData: state.Data.Insult,
+    TodoData: state.Data.Todo,
   };
 }
 

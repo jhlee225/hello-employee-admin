@@ -7,7 +7,13 @@ function EmListPresenter(props) {
       <td>{props.item.emName}</td>
       <td>{props.item.emTeam}</td>
       <td>{props.item.emPosition}</td>
-      <td>{props.item.emStatus}</td>
+      <td>
+        {props.item.emStatus === "0"
+          ? "휴가"
+          : props.item.emStatus === "1"
+          ? "재직중"
+          : "퇴직"}
+      </td>
       <td value={props.item.emId} onClick={handleClick}>
         수정
       </td>

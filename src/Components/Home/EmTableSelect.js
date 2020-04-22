@@ -1,11 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
+import { putEmployee } from "../../Axios";
 import { SetRetireData } from "../../Reducers/DataReducer";
 function EmSelectPresenter(props) {
-  const { RetireData, SetRetireData } = props;
-  function handleRetireData(e) {
-    props.item.emStatus = e.target.checked ? 2 : 2;
-    SetRetireData({ ...RetireData, [props.item.emId]: props.item });
+  function SubmitStatus(e) {
+    const newData = {
+      emId: props.item.emId,
+      emPosition: props.item.emPosition,
+      emName: props.item.emName,
+      emTeam: props.item.emTeam,
+      emSecurityNum: props.item.emSecurityNum,
+      emOpenTime: props.item.emOpenTime,
+      emCloseTime: props.item.emCloseTime,
+      emStartDate: props.item.emStartDate,
+      emEndDate: props.item.emEndDate,
+      emStatus: props.item.emStatus === "2" ? "1" : "2",
+      emPhone: props.item.emPhone,
+      emFingerPrint: props.item.emFingerPrint,
+    };
+    console.log(JSON.stringify(newData));
+    putEmployee("/employee", JSON.stringify(newData)).then((res) =>
+      alert("퇴직처리 완료!", res)
+    );
   }
 
   return (
@@ -21,8 +37,8 @@ function EmSelectPresenter(props) {
           ? "재직중"
           : "퇴직"}
       </td>
-      <td>
-        <input type="checkbox" onClick={handleRetireData} className="check" />
+      <td onClick={SubmitStatus}>
+        {props.item.emStatus === "2" ? "퇴직취소" : "퇴직"}
       </td>
     </tr>
   );

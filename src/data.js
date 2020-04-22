@@ -1,4 +1,4 @@
-const emId0 = 0,
+const emId0 = "0",
   emPosition0 = "프론트",
   emName0 = "김수진",
   emTeam0 = "직원관리",
@@ -7,10 +7,10 @@ const emId0 = 0,
   emCloseTime0 = "22:00",
   emStartDate0 = "2020-01-01",
   emEndDate0 = "2120-02-20",
-  emStatus0 = 1,
+  emStatus0 = "2",
   emPhone0 = "010-7799-9036";
 
-const emId1 = 1,
+const emId1 = "1",
   emPosition1 = "백엔드",
   emName1 = "윤보민",
   emTeam1 = "직원관리",
@@ -19,10 +19,10 @@ const emId1 = 1,
   emCloseTime1 = "22:00",
   emStartDate1 = "2020-01-01",
   emEndDate1 = "2120-01-01",
-  emStatus1 = 1,
+  emStatus1 = "0",
   emPhone1 = "010-7799-9036";
 
-const emId2 = 2,
+const emId2 = "2",
   emPosition2 = "프론트",
   emName2 = "이재혁",
   emTeam2 = "직원관리",
@@ -31,7 +31,7 @@ const emId2 = 2,
   emCloseTime2 = "22:00",
   emStartDate2 = "2020-02-02",
   emEndDate2 = "2220-02-02",
-  emStatus2 = 1,
+  emStatus2 = "1",
   emPhone2 = "010-7799-9036";
 
 const res = {
@@ -49,7 +49,7 @@ const res = {
       emEndDate: emEndDate0,
       emStatus: emStatus0,
       emPhone: emPhone0,
-      emFingerPrint: "wlans1",
+      emFingerPrint: "asdafasdasasfsfsasdasdasd",
     },
     {
       emId: emId1,
@@ -63,7 +63,7 @@ const res = {
       emEndDate: emEndDate1,
       emStatus: emStatus1,
       emPhone: emPhone1,
-      emFingerPrint: "wlans2",
+      emFingerPrint: null,
     },
     {
       emId: emId2,

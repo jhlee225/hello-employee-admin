@@ -10,7 +10,7 @@ function Main(props) {
               <div className="Warn">
                 ERR! 잘못된 접근입니다!
                 <span>
-                  <Link to="/">→ 관리자 로그인으로 돌아가기</Link>
+                  <Link to="/Sign">→ 관리자 로그인으로 돌아가기</Link>
                 </span>
               </div>
             </div>

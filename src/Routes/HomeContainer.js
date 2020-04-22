@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { OpenInsult } from "../Reducers/HomeReducer";
+import { OpenInsult, OpenHome } from "../Reducers/HomeReducer";
 import {
   SetHomeData,
   SetEnrollData,
@@ -8,10 +8,17 @@ import {
 } from "../Reducers/DataReducer";
 import HomePresenter from "./HomePresenter";
 import { getEmployee } from "../Axios.js";
-import Axios from "axios";
+//import Axios from "axios";
+//import data from "../data";
 function Home(props) {
-  const { selected, isAdmin, insult, modify } = props;
-  const { OpenInsult, SetHomeData, SetEnrollData, SetRetireData } = props;
+  const { isload, selected, isAdmin, insult, modify, SetIsLoad } = props;
+  const {
+    OpenHome,
+    OpenInsult,
+    SetHomeData,
+    SetEnrollData,
+    SetRetireData,
+  } = props;
   function handleInsult(e) {
     OpenInsult({ insult });
   }
@@ -26,7 +33,6 @@ function Home(props) {
     function getData() {
       const url = "/employee";
       getEmployee(url).then((res) => {
-        console.log(res);
         SetHomeData({ data: res.data.data });
         SetRetireData({ data: res.data.data });
         SetEnrollData({ data: res.data.data });
@@ -37,13 +43,21 @@ function Home(props) {
         SetHomeData({ data: res.data.list });
         SetRetireData({ data: res.data.list });
         SetEnrollData({ data: res.data.list });
-      });*/
+      }); //*/
+      /*SetHomeData({ data: JSON.parse(data).data });
+      SetRetireData({ data: JSON.parse(data).data });
+      SetEnrollData({ data: JSON.parse(data).data });
+      //*/
     }
     getData();
     return () => {
-      SetHomeData({ data: null });
-      SetRetireData({ data: null });
-      SetEnrollData({ data: null });
+      if (isload) {
+        OpenHome();
+        SetHomeData({ data: null });
+        SetRetireData({ data: null });
+        SetEnrollData({ data: null });
+        SetIsLoad({ isload });
+      }
     };
   });
 
@@ -52,6 +66,7 @@ function Home(props) {
 
 function mapStateToProps(state) {
   return {
+    isload: state.Home.isload,
     insult: state.Home.insult,
     modify: state.Home.modify,
     selected: state.Home.selected,
@@ -61,7 +76,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    OpenHome: () => dispatch(OpenHome()),
     OpenInsult: ({ insult }) => dispatch(OpenInsult({ insult })),
+    SetIsLoad: ({ isload }) => dispatch(SetHomeData({ isload })),
     SetHomeData: ({ data }) => dispatch(SetHomeData({ data })),
     SetEnrollData: ({ data }) => dispatch(SetEnrollData({ data })),
     SetRetireData: ({ data }) => dispatch(SetRetireData({ data })),

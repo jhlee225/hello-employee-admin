@@ -1,7 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import EmTableSelect from "./EmTableSelect";
 function EmRetire(props) {
-  const { RetireData, RetireSubmit } = props.state;
+  const { RetireData } = props;
   return (
     <>
       <table className="HomeTable">
@@ -25,9 +26,18 @@ function EmRetire(props) {
           )}
         </tbody>
       </table>
-      <button onClick={RetireSubmit}>퇴직처리</button>
     </>
   );
 }
 
-export default EmRetire;
+function mapStateToProps(state) {
+  return {
+    RetireData: state.Data.Retire,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmRetire);

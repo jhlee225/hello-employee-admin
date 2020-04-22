@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { OpenModify } from "../../Reducers/HomeReducer";
+import { SetTodoModify } from "../../Reducers/ToDoReducer";
 import { SetModifyData } from "../../Reducers/DataReducer";
 import { putEmployee } from "../../Axios";
 import TDModifyPresenter from "./TDModifyPresenter";
 function EmInsult(props) {
-  const { ModifyData, modify, OpenModify, SetModifyData } = props;
+  const { ModifyData, modify, SetTodoModify, SetModifyData } = props;
+
   function handleModify(e) {
-    OpenModify({ modify });
+    SetTodoModify({ modify });
   }
 
   function handleModifyData(e) {
@@ -32,14 +33,14 @@ function EmInsult(props) {
 }
 function mapStateToProps(state) {
   return {
-    modify: state.Home.modify,
+    modify: state.ToDo.modify,
     ModifyData: state.Data.Modify,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    OpenModify: ({ modify }) => dispatch(OpenModify({ modify })),
+    SetTodoModify: ({ modify }) => dispatch(SetTodoModify({ modify })),
     SetModifyData: ({ data }) => dispatch(SetModifyData({ data })),
   };
 }
