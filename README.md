@@ -14,13 +14,15 @@ https://github.com/90factory/3rd_employee
 
 Component 를 logic과 action을 관리하는 Container 와 view 를 관리하는 Presenter 로 나누어 관리합니다.
 
+<img src="./ReadMe/Common.jpg">
+
 또한 자주 사용하는 Component 는 Common Component 에 만들어 놓고 재 사용 합니다.
 
 ### Redux & Axios
 
-<img src="./ReadMe/Redux.jpg">
-
 Redux를 사용하여 Store 에서 state를 관리하였으며,
+
+<img src="./ReadMe/Redux.jpg">
 
 Axios를 모듈화 하여 Ajax 로 통신하였습니다.
 
