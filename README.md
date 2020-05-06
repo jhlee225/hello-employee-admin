@@ -10,7 +10,7 @@ https://github.com/90factory/3rd_employee
 
 <img src="./ReadMe/React.jpg">
 
-### Container - Presenter
+### `Container - Presenter`
 
 Component 를 logic과 action을 관리하는 Container 와 view 를 관리하는 Presenter 로 나누어 관리합니다.
 
@@ -18,7 +18,7 @@ Component 를 logic과 action을 관리하는 Container 와 view 를 관리하�
 
 또한 자주 사용하는 Component 는 Common Component 에 만들어 놓고 재 사용 합니다.
 
-### Redux & Axios
+### `Redux & Axios`
 
 Redux를 사용하여 Store 에서 state를 관리하였으며,
 
