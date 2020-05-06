@@ -4,21 +4,7 @@
 
 ## 90Factory Team Project
 
-### 주제
-
-직원관리 시스템
-
-- 실시간 직원조회
-- 지문 인식 출퇴근
-- 편리한 직원관리
-
-### 인원 (총 3인)
-
-<img src="./ReadMe/Roll.jpg">
-
-### 아키텍처
-
-<img src="./ReadMe/Arch.jpg">
+https://github.com/90factory/3rd_employee
 
 ## Admin-Page
 
