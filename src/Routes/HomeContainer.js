@@ -9,7 +9,7 @@ import {
 import HomePresenter from "./HomePresenter";
 import { getEmployee } from "../Axios.js";
 //import Axios from "axios";
-//import data from "../data";
+import data from "../data";
 function Home(props) {
   const { isload, selected, isAdmin, insult, modify, SetIsLoad } = props;
   const {
@@ -44,11 +44,12 @@ function Home(props) {
         SetRetireData({ data: res.data.list });
         SetEnrollData({ data: res.data.list });
       }); //*/
-      /*SetHomeData({ data: JSON.parse(data).data });
+      SetHomeData({ data: JSON.parse(data).data });
       SetRetireData({ data: JSON.parse(data).data });
       SetEnrollData({ data: JSON.parse(data).data });
       //*/
     }
+
     getData();
     return () => {
       if (isload) {

@@ -21,12 +21,7 @@ function EnrollTablePresenter(props) {
 
         console.log(result);
         OpenModal({ modal: modal });
-        //       result ? ...
       });
-      //등록실패는 없음.
-      //등록성공시 출근하기를 API를호출해서 등록된 지문 확인
-      //출근성공 ? 등록성공 : 출근성공 ? 등록성공 : 재등록? 업데이트 : END
-      // 모달 ...
     });
   }
 

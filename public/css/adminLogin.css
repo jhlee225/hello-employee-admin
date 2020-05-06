@@ -84,7 +84,7 @@ input[type="submit"]:hover {
 .signHeader h1 {
   margin: 0;
   text-indent: -9999px;
-  background-image: url(/resources/jh/images/logo2.png);
+  background-image: url(../images/logo2.png);
   background-size: 140px 25px;
   margin-top: 0px;
   width: 140px;
@@ -125,7 +125,7 @@ input[type="submit"]:hover {
     padding: 20px 20px;
   }
   .signHeader h1 {
-    background-image: url(/resources/jh/images/logo-pc.png) no-repeat;
+    background-image: url(../images/logo-pc.png) no-repeat;
     background-size: 209px 40px;
     width: 209px;
     height: 40px;
@@ -147,7 +147,7 @@ input[type="submit"]:hover {
 }
 
 .bg {
-  background-image: url(/resources/jh/images/bg-pattern.png);
+  background-image: url(../images/bg-pattern.png);
 }
 
 .Signcontents {

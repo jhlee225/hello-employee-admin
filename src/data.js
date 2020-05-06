@@ -7,7 +7,7 @@ const emId0 = "0",
   emCloseTime0 = "22:00",
   emStartDate0 = "2020-01-01",
   emEndDate0 = "2120-02-20",
-  emStatus0 = "2",
+  emStatus0 = 2,
   emPhone0 = "010-7799-9036";
 
 const emId1 = "1",
@@ -19,7 +19,7 @@ const emId1 = "1",
   emCloseTime1 = "22:00",
   emStartDate1 = "2020-01-01",
   emEndDate1 = "2120-01-01",
-  emStatus1 = "0",
+  emStatus1 = 0,
   emPhone1 = "010-7799-9036";
 
 const emId2 = "2",
@@ -31,7 +31,7 @@ const emId2 = "2",
   emCloseTime2 = "22:00",
   emStartDate2 = "2020-02-02",
   emEndDate2 = "2220-02-02",
-  emStatus2 = "1",
+  emStatus2 = 1,
   emPhone2 = "010-7799-9036";
 
 const res = {
@@ -63,7 +63,7 @@ const res = {
       emEndDate: emEndDate1,
       emStatus: emStatus1,
       emPhone: emPhone1,
-      emFingerPrint: null,
+      emFingerPrint: "asdasaffdss",
     },
     {
       emId: emId2,
@@ -77,7 +77,7 @@ const res = {
       emEndDate: emEndDate2,
       emStatus: emStatus2,
       emPhone: emPhone2,
-      emFingerPrint: null,
+      emFingerPrint: 0,
     },
   ],
 };

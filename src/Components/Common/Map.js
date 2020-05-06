@@ -6,7 +6,7 @@ function Map(props) {
         <div className="map">
           <h2>MAP</h2>
           <div className="map-image">
-            <img src="/resources/jh/images/map.png" alt="NEST 505 지도" />
+            <img src="../images/map.png" alt="NEST 505 지도" />
           </div>
           <p className="map-txt">
             서울시 마포구 마포대로14길
