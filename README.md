@@ -1,3 +1,20 @@
+# HELLO-EMPLOYEE Admin page
+
+2020.03.23 ~ 2020.04.24
+
+## 90Factory Team Project
+
+주제 : 직원관리 시스템
+
+- 실시간 직원조회
+- 지문 인식 출퇴근
+- 편리한 직원관리
+
+인원 (총 3명)
+<img src="./ReadMe/Roll.jpg">
+
+# Default README of Create-react-app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
