@@ -26,7 +26,7 @@ Redux를 사용하여 Store 에서 state를 관리하였습니다.
 
 ### `Axios & Api Call`
 
-<img src="./Readme/Axios.jpg">
+<img src="./ReadMe/Axios.jpg">
 Axios를 모듈화 하여 Ajax 로 서버와 통신하였습니다.
 
 <img src="./ReadMe/Apis.png">
