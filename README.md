@@ -14,6 +14,8 @@ https://github.com/90factory/3rd_employee
 
 관리자 페이지의 프론트엔드 부분을 담당하여 개발을 진행하였습니다.
 
+## React Architecture
+
 <img src="./ReadMe/React.jpg">
 
 ### `Container - Presenter`
