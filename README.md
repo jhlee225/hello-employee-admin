@@ -2,7 +2,7 @@
 
 2020.03.23 ~ 2020.04.24
 
-첫 풀스택 프로젝트를 무사히(?) 마치고 처음으로 팀원들과 함께한 프로젝트
+첫 풀스택 프로젝트를 마치고 처음으로 팀원들과 함께한 프로젝트
 
 직원이 출퇴근을 하고 이를 확인 할 수 있는 직원 출퇴근 시스템의 관리자 페이지를 만들었습니다.
 
@@ -26,6 +26,8 @@
 
 ## 상세
 
+### React 아키텍쳐
+
 <img src="./ReadMe/React.jpg">
 
 ### `Container - Presenter`
@@ -33,21 +35,21 @@
 Component 를 logic과 action을 관리하는 Container 와 view 를 관리하는 Presenter 로 나누어 관리 하였습니다.
 
 <img src="./ReadMe/Common.jpg">
-
 또한 자주 사용하는 Component 는 Common Component 에 만들어 놓고 재 사용 하였습니다.
 
-### `Redux`
-
-Redux를 사용하여 Store 에서 state를 관리하였습니다.
-
-<img src="./ReadMe/Redux.jpg">
-
-### `Axios & Api Call`
-
-<img src="./ReadMe/Axios.jpg">
-Axios를 모듈화 하여 Ajax 로 서버와 통신하였습니다.
+### `Swagger`
 
 <img src="./ReadMe/Apis.png">
 <img src="./ReadMe/Swagger.png">
 
 BackEnd에서 열어준 API들을 Swagger로 서버 연결 전에 확인하여 코드를 쉽게 짤 수 있었습니다.
+
+### `Redux`
+
+<img src="./ReadMe/Redux.jpg">
+Redux를 사용하여 Store 에서 Component의 state를 관리하였습니다.
+
+### `Axios Module`
+
+<img src="./ReadMe/Axios.jpg">
+Axios를 모듈화 하여 Ajax 로 서버와 통신하였습니다.
