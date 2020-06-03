@@ -4,17 +4,27 @@
 
 첫 풀스택 프로젝트를 무사히(?) 마치고 처음으로 팀원들과 함께한 프로젝트
 
+직원이 출퇴근을 하고 이를 확인 할 수 있는 직원 출퇴근 시스템의 관리자 페이지를 만들었습니다.
+
+직원정보의 등록과 관리를 할 수 있으며 직원의 지문을 등록할 수 있습니다.
+
 ## 90Factory Team Project
 
-팀 프로젝트 전체의 세부 내용은 아래 주소에서 확인 하실 수 있습니다.
+팀 프로젝트 전체의 세부 내용 및 개요는 아래 주소에서 확인 하실 수 있습니다.
 
-https://github.com/90factory/3rd_employee
+[팀프로젝트 전체 깃허브](https://github.com/90factory/3rd_employee)
 
-## Admin-Page
+## 개발
 
-관리자 페이지의 프론트엔드 부분을 담당하여 개발을 진행하였습니다.
+- Create-react-app을 사용한 React 웹 앱 개발
 
-## React Architecture
+- 백엔드 개발자와의 협업 - Swagger 로 API 문서를 공유
+
+- Redux를 사용하여 Component의 State관리
+
+- Axios 모듈화 하여 Ajax를 통한 서버 요청
+
+## 상세
 
 <img src="./ReadMe/React.jpg">
 
